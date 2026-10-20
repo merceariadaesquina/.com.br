@@ -1,0 +1,26 @@
+MERCEARIA DA ESQUINA — adaptação do site enviado
+
+WhatsApp: (91) 98434-4128
+Logo original preservada. Cor principal: laranja.
+
+COMO ABRIR
+Extraia esta pasta e abra index.html. Para testar instalação e cache, use o Live Server do VS Code ou uma hospedagem HTTPS.
+
+CATÁLOGO E PAINEL
+O visual, busca, categorias e botões de WhatsApp foram adaptados.
+Nenhum produto ou preço foi inventado. O catálogo começa vazio.
+O banco da loja de joias foi desconectado desta cópia. O site antigo não foi alterado.
+O config.js já aponta para o projeto rvsqnueqcapbmaasvghb da mercearia. Execute 01_criar_catalogo.sql no SQL Editor desse projeto para criar a tabela e liberar a leitura. O cadastro pelo painel depende da próxima etapa: criar o usuário administrador, as políticas de escrita e o bucket produtos para fotos. Nunca coloque uma chave secreta no site.
+Configure as políticas de acesso: leitura pública do catálogo e alterações somente pelo usuário administrador autorizado. O painel não deve aceitar cadastro público de administradores.
+A configuração do novo banco, as políticas de acesso e o login ainda precisam ser concluídos e testados antes do uso do painel.
+
+CATEGORIAS INICIAIS
+Alimentos, Bebidas, Limpeza, Higiene e Utilidades. Ajuste conforme os produtos reais da loja.
+
+PUBLICAÇÃO
+Use uma pasta/repositório separado para a Mercearia. Não substitua os arquivos do site de joias em produção.
+Publique o conteúdo desta pasta em uma hospedagem estática, como GitHub Pages.
+Formas de pagamento, entrega, endereço e horários não foram presumidos: o site orienta consultar a loja.
+
+CARRINHO
+Os clientes adicionam produtos, ajustam quantidades e finalizam uma lista única no WhatsApp. O carrinho é salvo neste navegador quando permitido. Produtos e preços são conferidos contra o catálogo carregado. Itens indisponíveis devem ser removidos antes de finalizar. O envio da mensagem deve ser confirmado pelo cliente no WhatsApp; abrir o WhatsApp não confirma uma compra nem limpa o carrinho.

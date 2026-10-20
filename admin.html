@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Painel Administrativo - Mercearia da Esquina</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body class="admin-body">
+
+
+    <!-- =========================
+         LOGIN
+    ========================== -->
+
+    <section
+        id="areaLogin"
+        class="login-container"
+    >
+
+        <div class="login-card">
+
+            <div class="login-logo"><img class="marca-logo" src="img/logo.png" alt="Logo Mercearia da Esquina"></div>
+
+            <span class="login-mini">
+                MERCEARIA DA ESQUINA
+            </span>
+
+            <h1>
+                Área Administrativa
+            </h1>
+
+            <p class="login-texto">
+                Entre com seu e-mail e senha
+                para gerenciar o catálogo.
+            </p>
+
+
+            <form id="formLogin">
+
+                <div class="campo">
+
+                    <label for="emailLogin">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="emailLogin"
+                        placeholder="Seu e-mail"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="senhaLogin">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senhaLogin"
+                        placeholder="Sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="botao-login"
+                    id="botaoLogin"
+                >
+                    Entrar
+                </button>
+
+
+                <p
+                    id="mensagemLogin"
+                    class="mensagem-login"
+                ></p>
+
+            </form>
+
+
+            <a
+                href="index.html"
+                class="link-voltar-loja"
+            >
+                ← Voltar para a loja
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAINEL
+    ========================== -->
+
+    <div
+        id="areaPainel"
+        style="display: none;"
+    >
+
+        <header class="admin-topo">
+
+            <div>
+
+                <span class="admin-mini">
+                    MERCEARIA DA ESQUINA
+                </span>
+
+                <h1>
+                    Painel Administrativo
+                </h1>
+
+            </div>
+
+
+            <div class="admin-topo-acoes">
+
+                <a
+                    href="index.html"
+                    class="botao-voltar-site"
+                >
+                    Ver loja
+                </a>
+
+                <button
+                    type="button"
+                    id="botaoSair"
+                    class="botao-sair"
+                >
+                    Sair
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <main class="admin-container">
+
+
+            <!-- =========================
+                 RESUMO
+            ========================== -->
+
+            <section class="admin-resumo">
+
+                <div class="resumo-card">
+
+                    <span>
+                        Total de produtos
+                    </span>
+
+                    <strong id="totalJoias">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="resumo-card">
+
+                    <span>
+                        Disponíveis
+                    </span>
+
+                    <strong id="totalDisponiveis">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="resumo-card">
+
+                    <span>
+                        Esgotados
+                    </span>
+
+                    <strong id="totalEsgotados">
+                        0
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 FORMULÁRIO
+            ========================== -->
+
+            <section class="admin-card">
+
+                <div class="admin-titulo">
+
+                    <span>
+                        GERENCIAR CATÁLOGO
+                    </span>
+
+                    <h2 id="tituloFormulario">
+                        Adicionar novo produto
+                    </h2>
+
+                </div>
+
+
+                <form id="formProduto">
+
+                    <input
+                        type="hidden"
+                        id="produtoId"
+                    >
+
+                    <input
+                        type="hidden"
+                        id="imagemAtual"
+                    >
+
+
+                    <!-- NOME -->
+
+                    <div class="campo">
+
+                        <label for="nomeProduto">
+                            Nome do produto
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nomeProduto"
+                            placeholder="Ex: Arroz 1 kg"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PREÇO -->
+
+                    <div class="campo">
+
+                        <label for="precoProduto">
+                            Preço
+                        </label>
+
+                        <input
+                            type="number"
+                            id="precoProduto"
+                            placeholder="Ex: 129.90"
+                            step="0.01"
+                            min="0"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CATEGORIA -->
+
+                    <div class="campo">
+
+                        <label for="categoriaProduto">
+                            Categoria
+                        </label>
+
+                        <select
+                            id="categoriaProduto"
+                            required
+                        >
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option value="alimentos">
+                                Alimentos
+                            </option>
+
+                            <option value="bebidas">
+                                Bebidas
+                            </option>
+
+                            <option value="limpeza">
+                                Limpeza
+                            </option>
+
+                            <option value="higiene">
+                                Higiene
+                            </option>
+
+                            <option value="utilidades">
+                                Utilidades
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- FOTO -->
+
+                    <div class="campo">
+
+                        <label for="imagemProduto">
+                            Foto do produto
+                        </label>
+
+                        <input
+                            type="file"
+                            id="imagemProduto"
+                            accept="image/*"
+                        >
+
+                        <p class="ajuda-foto">
+                            Pelo celular você poderá
+                            escolher uma foto da galeria
+                            ou usar a câmera. A imagem será
+                            comprimida automaticamente.
+                        </p>
+
+                    </div>
+
+
+                    <!-- PRÉ-VISUALIZAÇÃO -->
+
+                    <div
+                        id="areaPreview"
+                        class="area-preview"
+                        style="display: none;"
+                    >
+
+                        <span>
+                            Pré-visualização
+                        </span>
+
+                        <img
+                            id="previewImagem"
+                            src=""
+                            alt="Pré-visualização do produto"
+                        >
+
+                    </div>
+
+
+                    <!-- DISPONIBILIDADE -->
+
+                    <div class="campo">
+
+                        <label for="statusProduto">
+                            Disponibilidade
+                        </label>
+
+                        <select id="statusProduto">
+
+                            <option value="disponivel">
+                                Disponível
+                            </option>
+
+                            <option value="esgotado">
+                                Esgotado
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- BOTÕES -->
+
+                    <div class="admin-botoes">
+
+                        <button
+                            type="submit"
+                            class="botao-salvar"
+                            id="botaoSalvar"
+                        >
+                            Salvar produto
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="botaoCancelar"
+                            class="botao-cancelar"
+                        >
+                            Cancelar edição
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="mensagemProduto"
+                        class="mensagem-produto"
+                    ></p>
+
+                </form>
+
+            </section>
+
+
+            <!-- =========================
+                 PRODUTOS
+            ========================== -->
+
+            <section class="admin-card">
+
+                <div class="admin-titulo">
+
+                    <span>
+                        CATÁLOGO
+                    </span>
+
+                    <h2>
+                        Joias cadastradas
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="carregandoProdutos"
+                    class="admin-carregando"
+                >
+                    Carregando produtos...
+                </div>
+
+
+                <div
+                    id="listaAdminProdutos"
+                ></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         SUPABASE
+    ========================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- =========================
+         ADMIN JS
+    ========================== -->
+
+    <script src="config.js"></script>
+    <script src="admin.js?v=2"></script>
+
+</body>
+
+</html>

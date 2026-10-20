@@ -1,0 +1,17 @@
+{
+  "name": "Mercearia da Esquina",
+  "short_name": "Mercearia",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#100e0c",
+  "theme_color": "#f58220",
+  "icons": [
+    {
+      "src": "img/logo.png",
+      "sizes": "2048x2048",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

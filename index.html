@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Mercearia da Esquina: consulte o catálogo e faça seu pedido pelo WhatsApp.">
+    <link rel="icon" href="img/logo.png" type="image/png">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mercearia da Esquina</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <meta
+        name="theme-color"
+        content="#f58220"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="img/logo.png"
+    >
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div class="logo-area">
+
+            <div class="logo-circulo"><img class="marca-logo" src="img/logo.png" alt="Logo Mercearia da Esquina"></div>
+
+            <div class="marca-assinatura">
+                <h1 class="marca-titulo" aria-label="Mercearia da Esquina">
+                    <span class="marca-linha">Mercearia</span>
+                    <span class="marca-linha">da Esquina</span>
+                </h1>
+                <p>Pertinho de você, todos os dias</p>
+            </div>
+
+        </div>
+
+    <button type="button" id="abrirCarrinho" class="abrir-carrinho" aria-haspopup="dialog" aria-controls="carrinho">Carrinho <span id="contadorCarrinho">0</span></button>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <span class="hero-detalhe">
+                MERCEARIA DA ESQUINA
+            </span>
+
+            <h2>O que você precisa,<span>bem aqui na esquina.</span></h2>
+            <p>Seu dia a dia começa com praticidade. Consulte os produtos e faça seu pedido com a gente.</p>
+            <div class="informacoes-botoes" aria-label="Informações da loja">
+                <button type="button" class="botao-informacao botao-pagamento" data-dialog="infoPagamento" aria-haspopup="dialog" aria-controls="infoPagamento">
+                    <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 10h19M6.5 15h4"/></svg>
+                    <span>Formas de pagamento</span>
+                    <span class="botao-seta" aria-hidden="true">↗</span>
+                </button>
+                <button type="button" class="botao-informacao botao-endereco" data-dialog="infoEndereco" aria-haspopup="dialog" aria-controls="infoEndereco">
+                    <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                    <span>Endereço</span>
+                    <span class="botao-seta" aria-hidden="true">↗</span>
+                </button>
+                <button type="button" class="botao-informacao botao-mercearia" data-dialog="infoSite" aria-haspopup="dialog" aria-controls="infoSite">
+                    <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10h17l-1.5-5.5h-14L3.5 10ZM4.5 10v10h15V10M9 20v-6h6v6"/><path d="M7 10v2M12 10v2M17 10v2"/></svg>
+                    <span>Informações da Mercearia</span>
+                    <span class="botao-seta" aria-hidden="true">↗</span>
+                </button>
+            </div>
+
+        </section>
+
+
+        <section class="busca-area">
+
+            <div class="busca">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    id="campoBusca" aria-label="Buscar produtos"
+                    placeholder="Buscar umo produto..."
+                >
+
+            </div>
+
+        </section>
+
+
+        <section class="categorias">
+
+            <button
+                class="categoria ativa"
+                data-categoria="todos"
+            >
+                Todos
+            </button>
+
+            <button
+                class="categoria"
+                data-categoria="alimentos"
+            >
+                Alimentos
+            </button>
+
+            <button
+                class="categoria"
+                data-categoria="bebidas"
+            >
+                Bebidas
+            </button>
+
+            <button
+                class="categoria"
+                data-categoria="limpeza"
+            >
+                Limpeza
+            </button>
+
+            <button
+                class="categoria"
+                data-categoria="higiene"
+            >
+                Higiene
+            </button>
+
+            <button
+                class="categoria"
+                data-categoria="utilidades"
+            >
+                Utilidades
+            </button>
+
+        </section>
+
+
+        <section class="titulo-produtos">
+
+            <div>
+
+                <span>
+                    PARA O SEU DIA A DIA
+                </span>
+
+                <h2>
+                    Produtos disponíveis
+                </h2>
+
+            </div>
+
+            <p id="quantidadeProdutos">
+                Carregando...
+            </p>
+
+        </section>
+
+
+        <section
+            class="produtos"
+            id="listaProdutos"
+        ></section>
+
+
+        <div
+            class="sem-resultados"
+            id="semResultados"
+        >
+
+            <div aria-hidden="true">⌑</div>
+
+            <h3>
+                Nenhumo produto encontrada
+            </h3>
+
+            <p>
+                Estamos preparando nosso catálogo. Enquanto isso, consulte os produtos e valores pelo WhatsApp.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-logo"><img class="marca-logo" src="img/logo.png" alt="Logo Mercearia da Esquina"></div>
+
+        <h2>
+            MERCEARIA DA ESQUINA
+        </h2>
+
+        <p>
+            Pertinho de você, todos os dias.
+        </p>
+
+        <span>
+            © 2026 Mercearia da Esquina • (91) 98434-4128
+        </span>
+
+    </footer>
+<!-- VISUALIZAÇÃO AMPLIADA DA JOIA -->
+<div class="modal-imagem" id="modalImagem">
+    <button class="fechar-modal" id="fecharModal">×</button>
+
+    <div class="modal-conteudo">
+        <img
+            id="imagemAmpliada"
+            src=""
+            alt="Produto ampliado"
+        >
+    </div>
+</div>
+
+    <!-- ESCOLHA DO ATENDIMENTO PELO WHATSAPP -->
+    <dialog id="modalVendedores" class="modal-vendedores" aria-labelledby="tituloVendedores" aria-describedby="produtoVendedores">
+        <button type="button" id="fecharVendedores" class="fechar-vendedores" aria-label="Fechar atendimento">×</button>
+        <h2 id="tituloVendedores">Fale com a Mercearia</h2>
+        <p id="produtoVendedores"></p>
+        <div class="opcoes-vendedores">
+            <a id="whatsappLoja" class="opcao-vendedor" target="_blank" rel="noopener noreferrer">Conversar pelo <strong>WhatsApp</strong></a>
+        </div>
+    </dialog>
+
+
+    <dialog id="infoPagamento" class="dialog-informacao" aria-labelledby="tituloPagamento">
+        <div class="informacao-cabecalho">
+            <h2 id="tituloPagamento">Formas de pagamento</h2>
+            <button type="button" class="fechar-informacao" aria-label="Fechar informações de pagamento" autofocus>×</button>
+        </div>
+        <div class="informacao-conteudo">
+            <p>Escolha a melhor forma de pagamento para sua compra:</p>
+            <ul class="formas-pagamento-lista" aria-label="Meios de pagamento aceitos">
+                <li>Dinheiro</li>
+                <li>Pix</li>
+                <li>Cartão de Débito</li>
+                <li>Cartão de Crédito</li>
+            </ul>
+        </div>
+    </dialog>
+
+
+    <dialog id="infoEndereco" class="dialog-informacao" aria-labelledby="tituloEndereco">
+        <div class="informacao-cabecalho">
+            <h2 id="tituloEndereco">Endereço</h2>
+            <button type="button" class="fechar-informacao" aria-label="Fechar endereço" autofocus>×</button>
+        </div>
+        <div class="informacao-conteudo">
+            <p class="endereco-destaque"><strong>Mercearia da Esquina</strong><span>Park Encantado, Rua Rosa de Saron, Quadra A, Casa 1.</span></p>
+        </div>
+    </dialog>
+
+    <dialog id="infoSite" class="dialog-informacao" aria-labelledby="tituloSite">
+        <div class="informacao-cabecalho">
+            <h2 id="tituloSite">Informações da Mercearia</h2>
+            <button type="button" class="fechar-informacao" aria-label="Fechar informações da Mercearia" autofocus>×</button>
+        </div>
+        <div class="informacao-conteudo informacoes-avisos">
+            <p><strong>Não vendemos fiado.</strong></p>
+            <p>Dependendo da distância, poderá ser cobrada uma taxa para a entrega dos seus produtos.</p>
+            <p>Se tiver alguma dúvida, é só nos chamar pelo <a href="https://wa.me/5591984344128" target="_blank" rel="noopener noreferrer">WhatsApp</a> para esclarecermos.</p>
+        </div>
+    </dialog>
+    <dialog id="carrinho" class="dialog-carrinho" aria-labelledby="tituloCarrinho">
+        <div class="carrinho-cabecalho"><div><span>MERCEARIA DA ESQUINA</span><h2 id="tituloCarrinho">Seu carrinho</h2></div><button type="button" id="fecharCarrinho" aria-label="Fechar carrinho" autofocus>×</button></div>
+        <ul id="carrinhoItens" class="carrinho-itens"></ul>
+        <div class="carrinho-resumo"><div class="carrinho-total"><span>Total dos produtos</span><strong id="totalCarrinho">R$ 0,00</strong></div>
+        <p>Disponibilidade e eventual taxa de entrega serão confirmadas pela loja.</p>
+        <p id="avisoCarrinho" role="status"></p>
+        <button type="button" id="finalizarPedido" class="finalizar-pedido" disabled>Finalizar pedido no WhatsApp ↗</button>
+        <button type="button" id="continuarComprando" class="continuar-comprando">Continuar comprando</button></div>
+    </dialog>
+    <p id="statusCarrinho" class="status-carrinho" role="status" aria-live="polite"></p>
+    <script src="informacoes.js"></script>
+
+    <!-- BIBLIOTECA DO SUPABASE -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- NOSSO JAVASCRIPT -->
+
+    <script src="config.js"></script>
+    <script src="carrinho.js"></script>
+    <script src="script.js"></script>
+
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener(
+                "load",
+                () => {
+
+                    navigator.serviceWorker
+
+                        .register("./service-worker.js")
+
+                        .then(() => {
+
+                            console.log(
+                                "Mercearia da Esquina instalada como PWA."
+                            );
+
+                        })
+
+                        .catch(error => {
+
+                            console.error(
+                                "Erro no Service Worker:",
+                                error
+                            );
+
+                        });
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
