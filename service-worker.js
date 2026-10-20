@@ -1,11 +1,11 @@
 // Mercearia da Esquina - suporte à instalação e funcionamento offline.
-const CACHE_NAME = 'mercearia-esquina-v15-instalacao';
+const CACHE_NAME = 'mercearia-esquina-v16-instalacao';
 const CORE_ASSETS = [
   './', './index.html', './style.css', './script.js', './carrinho.js',
   './instalar.js', './informacoes.js', './config.js', './manifest.json', './img/logo.png',
-  './img/icone-app-192-v15.png', './img/icone-app-512-v15.png',
-  './img/icone-app-maskable-512-v15.png', './img/icone-iphone-180-v15.png',
-  './img/favicon-32-v15.png'
+  './img/icone-app-192-v16.png', './img/icone-app-512-v16.png',
+  './img/icone-iphone-180-v16.png',
+  './img/favicon-32-v16.png'
 ];
 const ASSET_PATHS = new Set(CORE_ASSETS.map(path => new URL(path, self.registration.scope).pathname));
 
