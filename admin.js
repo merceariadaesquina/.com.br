@@ -460,7 +460,7 @@ function mostrarProdutos() {
                 padding:30px 10px;
                 font-size:13px;
             ">
-                Nenhumo produto cadastrada ainda.
+                Nenhum produto cadastrado ainda.
             </p>
         `;
 
@@ -1035,7 +1035,7 @@ formProduto.addEventListener(
 
 
                 mostrarMensagemProduto(
-                    "Joia atualizada com sucesso!",
+                    "Produto atualizado com sucesso!",
                     true
                 );
 
@@ -1067,7 +1067,7 @@ formProduto.addEventListener(
 
 
                 mostrarMensagemProduto(
-                    "Joia cadastrada com sucesso!",
+                    "Produto cadastrado com sucesso!",
                     true
                 );
 

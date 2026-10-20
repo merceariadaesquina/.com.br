@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mercearia-esquina-v10-botoes-compactos';
+const CACHE_NAME = 'mercearia-esquina-v11-final-produtos';
 const ASSETS = ['./','./index.html','./style.css','./script.js','./carrinho.js','./informacoes.js','./config.js','./manifest.json','./img/logo.png'];
 self.addEventListener('install', e => {e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)));self.skipWaiting();});
 self.addEventListener('activate', e => {e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('mercearia-') && k !== CACHE_NAME).map(k => caches.delete(k)))));self.clients.claim();});

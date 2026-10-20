@@ -1484,7 +1484,7 @@ body {background:#100e0c}
 .titulo-produtos h2,.produto-info h3 {font-family:Arial,sans-serif;font-weight:700}
 .titulo-produtos p {color:#aaa}
 .produto-card {border-color:#3b2b1e}
-.produto-imagem img {object-fit:contain}
+.produto-imagem img {object-fit:cover;object-position:center;display:block}
 .sem-resultados {max-width:650px;margin:20px auto 55px;padding:35px 24px;border:1px dashed #775132;border-radius:16px}
 .sem-resultados p {line-height:1.7;color:#bbb}
 .footer-logo {width:85px;height:85px;margin:0 auto 18px;border:0}
@@ -1720,4 +1720,45 @@ a:focus-visible,button:focus-visible,input:focus-visible {outline:3px solid #ffb
 @media (max-width: 355px) {
     .informacoes-botoes { gap: 6px; }
     .botao-informacao { padding: 8px 3px; font-size: 10px; }
+}
+
+
+/* Ajuste final: fotos de produtos ocupam o card inteiro sem esticar.
+   O arquivo enviado continua com a proporção original e o zoom mostra a foto completa. */
+.produto-imagem img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* Identidade principal maior, sem sacrificar a navegação no celular. */
+.logo-area { flex: 1 1 auto; gap: 16px; }
+.logo-circulo { width: 88px; height: 88px; }
+.logo-area .marca-linha {
+    font-size: 30px;
+    line-height: 1.05;
+}
+.logo-area .marca-assinatura p { font-size: 11px; margin-top: 6px; }
+@media (max-width: 700px) {
+    .logo-circulo { width: 72px; height: 72px; }
+    .logo-area { gap: 10px; }
+    .logo-area .marca-linha { font-size: 25px; }
+    .topo { padding: 12px 14px; }
+}
+@media (max-width: 480px) {
+    .logo-circulo { width: 67px; height: 67px; }
+    .logo-area { gap: 7px; }
+    .logo-area .marca-linha { font-size: 23px; letter-spacing: -.75px; }
+    .logo-area .marca-assinatura p { font-size: 9px; line-height: 1.25; margin-top: 4px; max-width: none; }
+    .abrir-carrinho { font-size: 12px; padding: 10px 10px; }
+}
+@media (max-width: 355px) {
+    .topo { padding: 9px 8px; gap: 6px; }
+    .logo-circulo { width: 58px; height: 58px; }
+    .logo-area { gap: 5px; }
+    .logo-area .marca-linha { font-size: 21px; letter-spacing: -.85px; }
+    .logo-area .marca-assinatura p { font-size: 8px; }
+    .abrir-carrinho { font-size: 11px; padding: 9px 8px; }
 }
