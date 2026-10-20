@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Mercearia da Esquina: consulte o catálogo e faça seu pedido pelo WhatsApp.">
-    <link rel="icon" href="img/favicon-32-v14.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="img/favicon-32-v15.png" sizes="32x32" type="image/png">
 
     <meta
         name="viewport"
@@ -22,7 +22,7 @@
 
     <link
         rel="manifest"
-        href="manifest.json?v=14"
+        href="manifest.json?v=15"
     >
 
     <meta
@@ -32,8 +32,9 @@
 
     <link
         rel="apple-touch-icon"
-        href="img/icone-iphone-180-v14.png"
+        href="img/icone-iphone-180-v15.png"
     >
+    <script src="instalar.js?v=15" defer></script>
 </head>
 
 <body>
@@ -56,6 +57,10 @@
 
     <button type="button" id="abrirCarrinho" class="abrir-carrinho" aria-haspopup="dialog" aria-controls="carrinho">Carrinho <span id="contadorCarrinho">0</span></button>
     </header>
+    <div id="instalarAppArea" hidden style="text-align:center;padding:12px;background:#211a13;color:#fff">
+      <button id="instalarApp" type="button" style="padding:12px 20px;border:0;border-radius:8px;background:#f58220;color:#100e0c;font-weight:bold;cursor:pointer">Instalar aplicativo</button>
+      <p id="instalarAppStatus" role="status" style="margin:6px 0 0"></p>
+    </div>
 
 
     <main>
