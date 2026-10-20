@@ -1,5 +1,5 @@
 // Mercearia da Esquina - suporte à instalação e funcionamento offline.
-const CACHE_NAME = 'mercearia-esquina-v16-instalacao';
+const CACHE_NAME = 'mercearia-esquina-v17-informacoes';
 const CORE_ASSETS = [
   './', './index.html', './style.css', './script.js', './carrinho.js',
   './instalar.js', './informacoes.js', './config.js', './manifest.json', './img/logo.png',

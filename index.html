@@ -17,7 +17,7 @@
 
     <link
         rel="stylesheet"
-        href="style.css"
+        href="style.css?v=17"
     >
 
     <link
@@ -79,14 +79,14 @@
                     <span>Formas de pagamento</span>
                     <span class="botao-seta" aria-hidden="true">↗</span>
                 </button>
-                <button type="button" class="botao-informacao botao-endereco" data-dialog="infoEndereco" aria-haspopup="dialog" aria-controls="infoEndereco">
+                <a class="botao-informacao botao-endereco" href="https://maps.app.goo.gl/YTYfdPEZGmb6EKUY8?g_st=ac" target="_blank" rel="noopener noreferrer" aria-label="Endereço: abrir localização no Google Maps">
                     <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
                     <span>Endereço</span>
                     <span class="botao-seta" aria-hidden="true">↗</span>
-                </button>
+                </a>
                 <button type="button" class="botao-informacao botao-mercearia" data-dialog="infoSite" aria-haspopup="dialog" aria-controls="infoSite">
                     <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10h17l-1.5-5.5h-14L3.5 10ZM4.5 10v10h15V10M9 20v-6h6v6"/><path d="M7 10v2M12 10v2M17 10v2"/></svg>
-                    <span>Informações da Mercearia</span>
+                    <span>Informações de entrega</span>
                     <span class="botao-seta" aria-hidden="true">↗</span>
                 </button>
             </div>
@@ -252,35 +252,24 @@
             <button type="button" class="fechar-informacao" aria-label="Fechar informações de pagamento" autofocus>×</button>
         </div>
         <div class="informacao-conteudo">
-            <p>Escolha a melhor forma de pagamento para sua compra:</p>
+            <p>Formas de pagamento disponíveis</p>
             <ul class="formas-pagamento-lista" aria-label="Meios de pagamento aceitos">
-                <li>Dinheiro</li>
-                <li>Pix</li>
-                <li>Cartão de Débito</li>
-                <li>Cartão de Crédito</li>
+                <li><strong>Dinheiro</strong><span>Praticidade para pagar sua compra.</span></li>
+                <li><strong>Pix</strong><span>Pagamento rápido e fácil.</span></li>
+                <li><strong>Cartão de débito</strong><span>Sua compra direto no débito.</span></li>
+                <li><strong>Cartão de crédito</strong><span>Mais uma opção para você pagar.</span></li>
             </ul>
-        </div>
-    </dialog>
-
-
-    <dialog id="infoEndereco" class="dialog-informacao" aria-labelledby="tituloEndereco">
-        <div class="informacao-cabecalho">
-            <h2 id="tituloEndereco">Endereço</h2>
-            <button type="button" class="fechar-informacao" aria-label="Fechar endereço" autofocus>×</button>
-        </div>
-        <div class="informacao-conteudo">
-            <p class="endereco-destaque"><strong>Mercearia da Esquina</strong><span>Park Encantado, Rua Rosa de Saron, Quadra A, Casa 1.</span></p>
         </div>
     </dialog>
 
     <dialog id="infoSite" class="dialog-informacao" aria-labelledby="tituloSite">
         <div class="informacao-cabecalho">
-            <h2 id="tituloSite">Informações da Mercearia</h2>
-            <button type="button" class="fechar-informacao" aria-label="Fechar informações da Mercearia" autofocus>×</button>
+            <h2 id="tituloSite">Informações de entrega</h2>
+            <button type="button" class="fechar-informacao" aria-label="Fechar informações de entrega" autofocus>×</button>
         </div>
         <div class="informacao-conteudo informacoes-avisos">
-            <p><strong>Não vendemos fiado.</strong></p>
-            <p>Dependendo da distância, poderá ser cobrada uma taxa para a entrega dos seus produtos.</p>
+            <p><strong>Fazemos entregas em compras a partir de R$ 50,00.</strong></p>
+            <p>Dependendo da distância, será cobrada uma taxa de entrega.</p>
             <p>Se tiver alguma dúvida, é só nos chamar pelo <a href="https://wa.me/5591984344128" target="_blank" rel="noopener noreferrer">WhatsApp</a> para esclarecermos.</p>
         </div>
     </dialog>

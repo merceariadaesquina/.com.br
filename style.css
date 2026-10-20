@@ -1762,3 +1762,9 @@ a:focus-visible,button:focus-visible,input:focus-visible {outline:3px solid #ffb
     .logo-area .marca-assinatura p { font-size: 8px; }
     .abrir-carrinho { font-size: 11px; padding: 9px 8px; }
 }
+
+/* Informações de pagamento e acesso ao mapa */
+a.botao-informacao { text-decoration: none; }
+.formas-pagamento-lista li { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.formas-pagamento-lista li strong { color: #f58220; font-size: 16px; }
+.formas-pagamento-lista li span { font-size: 13px; font-weight: 400; line-height: 1.5; }
