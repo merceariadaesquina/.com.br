@@ -1,9 +1,75 @@
-const CACHE_NAME = 'mercearia-v13-icons-art-final';
-const ASSETS = ['./','./index.html','./style.css','./script.js','./carrinho.js','./informacoes.js','./config.js','./manifest.json','./img/logo.png','./img/icone-app-192.png','./img/icone-app-512.png','./img/icone-app-maskable-512.png','./img/icone-iphone-180.png','./img/favicon-32.png'];
-self.addEventListener('install', e => {e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)));self.skipWaiting();});
-self.addEventListener('activate', e => {e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('mercearia-') && k !== CACHE_NAME).map(k => caches.delete(k)))));self.clients.claim();});
-self.addEventListener('fetch', e => {
- const url = new URL(e.request.url);
- if (e.request.method !== 'GET' || url.origin !== self.location.origin || !ASSETS.some(a => new URL(a,self.registration.scope).pathname === url.pathname)) return;
- e.respondWith(fetch(e.request).then(r => {if(r.ok){const copy=r.clone();caches.open(CACHE_NAME).then(c=>c.put(e.request,copy));}return r;}).catch(async()=> (await caches.match(e.request)) || Response.error()));
+// Mercearia da Esquina - suporte à instalação e funcionamento offline.
+const CACHE_NAME = 'mercearia-esquina-v14-instalacao';
+const CORE_ASSETS = [
+  './', './index.html', './style.css', './script.js', './carrinho.js',
+  './informacoes.js', './config.js', './manifest.json', './img/logo.png',
+  './img/icone-app-192-v14.png', './img/icone-app-512-v14.png',
+  './img/icone-app-maskable-512-v14.png', './img/icone-iphone-180-v14.png',
+  './img/favicon-32-v14.png'
+];
+const ASSET_PATHS = new Set(CORE_ASSETS.map(path => new URL(path, self.registration.scope).pathname));
+
+self.addEventListener('install', event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    // Um arquivo temporariamente indisponível não impede a instalação do SW.
+    await Promise.allSettled(CORE_ASSETS.map(async path => {
+      const url = new URL(path, self.registration.scope);
+      const response = await fetch(url, { cache: 'reload' });
+      if (!response.ok) throw new Error('Arquivo indisponível: ' + path);
+      await cache.put(url, response);
+    }));
+    await self.skipWaiting();
+  })());
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.filter(key => key.startsWith('mercearia-') && key !== CACHE_NAME)
+      .map(key => caches.delete(key)));
+    await self.clients.claim();
+  })());
+});
+
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  if (request.method !== 'GET') return;
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+
+  if (request.mode === 'navigate') {
+    event.respondWith((async () => {
+      try {
+        const response = await fetch(request);
+        if (response.ok) {
+          const cache = await caches.open(CACHE_NAME);
+          await cache.put(request, response.clone());
+        }
+        return response;
+      } catch (error) {
+        return await caches.match(request)
+          || await caches.match(new URL('./index.html', self.registration.scope))
+          || await caches.match(new URL('./', self.registration.scope))
+          || Response.error();
+      }
+    })());
+    return;
+  }
+
+  if (!ASSET_PATHS.has(url.pathname)) return;
+  event.respondWith((async () => {
+    try {
+      const response = await fetch(request);
+      if (response.ok) {
+        const cache = await caches.open(CACHE_NAME);
+        await cache.put(request, response.clone());
+      }
+      return response;
+    } catch (error) {
+      return await caches.match(request)
+        || await caches.match(new URL(url.pathname, url.origin))
+        || Response.error();
+    }
+  })());
 });

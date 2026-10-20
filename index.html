@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Mercearia da Esquina: consulte o catálogo e faça seu pedido pelo WhatsApp.">
-    <link rel="icon" href="img/favicon-32.png?v=13" sizes="32x32" type="image/png">
+    <link rel="icon" href="img/favicon-32-v14.png" sizes="32x32" type="image/png">
 
     <meta
         name="viewport"
@@ -12,6 +12,8 @@
     >
 
     <title>Mercearia da Esquina</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Mercearia">
 
     <link
         rel="stylesheet"
@@ -20,7 +22,7 @@
 
     <link
         rel="manifest"
-        href="manifest.json?v=13"
+        href="manifest.json?v=14"
     >
 
     <meta
@@ -30,7 +32,7 @@
 
     <link
         rel="apple-touch-icon"
-        href="img/icone-iphone-180.png?v=13"
+        href="img/icone-iphone-180-v14.png"
     >
 </head>
 
@@ -313,12 +315,12 @@
 
                     navigator.serviceWorker
 
-                        .register("./service-worker.js")
+                        .register("./service-worker.js", { updateViaCache: "none" })
 
                         .then(() => {
 
                             console.log(
-                                "Mercearia da Esquina instalada como PWA."
+                                "Service Worker da Mercearia registrado."
                             );
 
                         })
